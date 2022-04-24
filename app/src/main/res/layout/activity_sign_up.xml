@@ -4,83 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3F3EF"
+    android:backgroundTint="#EDEDE2"
     tools:context=".SignUpActivity">
+
+    <TextView
+        android:id="@+id/ConfirmPasswordText"
+        android:layout_width="111dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="9dp"
+        android:background="#939F5C"
+        android:text="Confirm Password"
+        android:textAlignment="gravity"
+        android:textColor="#F6F5F5"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/etConfirmPassword"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSignUpText" />
+
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#939F5C"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ConfirmPasswordText"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword2"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/signupButton2"
         android:layout_width="205dp"
         android:layout_height="67dp"
-        android:backgroundTint="#009688"
-        android:text="@string/sign_up"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="385dp" />
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#939F5C"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
 
     <EditText
-        android:id="@+id/FullName"
+        android:id="@+id/etPassword2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#009688"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="206dp" />
-
-    <TextView
-        android:id="@+id/FullNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#009688"
-        android:backgroundTint="#009688"
-        android:inputType="none"
-        android:text="@string/full_name"
-        android:textAlignment="center"
-        android:textColor="#FBFAFA"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="206dp" />
-
-    <EditText
-        android:id="@+id/passwordSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#009688"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#939F5C"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="311dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/passwordSignUpText"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail2"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/emailSignUpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#009688"
-        android:inputType="none"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="61dp"
+        android:background="#939F5C"
+        android:capitalize="none"
         android:text="Email"
         android:textAlignment="center"
         android:textColor="#F8F5F5"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="257dp" />
+        app:layout_constraintEnd_toStartOf="@+id/etEmail2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FullNametext"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/passwordSignUpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#009688"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="13dp"
+        android:background="#939F5C"
         android:text="Password"
         android:textAlignment="center"
         android:textColor="#F6F5F5"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="311dp" />
+        app:layout_constraintEnd_toStartOf="@+id/etPassword2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailSignUpText" />
 
     <EditText
-        android:id="@+id/emailSignUp"
+        android:id="@+id/etEmail2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#009688"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#939F5C"
         android:ems="10"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="257dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/emailSignUpText"
+        app:layout_constraintTop_toBottomOf="@+id/etFullName"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/etFullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="198dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#939F5C"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/FullNametext"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/FullNametext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="14dp"
+        android:background="#009688"
+        android:backgroundTint="#939F5C"
+        android:capitalize="none"
+        android:text="Full Name"
+        android:textAlignment="center"
+        android:textColor="#FBFAFA"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/etFullName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
