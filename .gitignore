@@ -1,0 +1,25 @@
+/local.properties
+
+#IDEA files from Gradle
+.idea/
+/*.iml
+/*.ipr
+/*.iws
+
+#Remove OS generated garbage
+*/.DS_Store
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+#gradle stuff
+/.gradle
+/build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
