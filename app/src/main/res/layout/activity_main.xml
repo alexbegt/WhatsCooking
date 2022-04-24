@@ -1,99 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7261C1BA"
-    android:backgroundTint="#B0B18F"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/SignupButton"
-        android:layout_width="210dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="358dp"
-        android:backgroundTint="#939F5C"
-        android:text="Sign up"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp" />
 
     <Button
-        android:id="@+id/LoginButton"
-        android:layout_width="210dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="17dp"
-        android:backgroundTint="#939F5C"
-        android:text="Log In"
-        app:layout_constraintBottom_toTopOf="@+id/SignupButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSignOut"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
+        android:layout_margin="6dp"
         android:backgroundTint="#939F5C"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:backgroundTint="#939F5C"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/etPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/PasswordText"
-        android:layout_width="96dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="6dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#939F5C"
-        android:text="Password"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etPassword"
-        app:layout_constraintTop_toBottomOf="@+id/EmailText"
-        tools:ignore="TextContrastCheck" />
+        android:textColor="#263238"
+        android:text="@string/sign_out" />
 
-    <TextView
-        android:id="@+id/EmailText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
-        android:background="#F2F3AE"
-        android:backgroundTint="#939F5C"
-        android:capitalize="none"
-        android:text="Email"
-        android:textAlignment="center"
-        android:textColor="#FBFBFB"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/etEmail"
-        app:layout_constraintTop_toTopOf="@+id/etEmail"
-        tools:ignore="TouchTargetSizeCheck" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
