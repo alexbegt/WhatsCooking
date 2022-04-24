@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".recipecard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="143dp">
+
+        <EditText
+            android:id="@+id/recipeTitleText"
+            android:layout_width="47dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="43dp"
+            android:layout_marginBottom="683dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Recipe Title" />
+
+        <EditText
+            android:id="@+id/TagText"
+            android:layout_width="49dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter Tag" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/IngredientsText"
+            android:layout_width="342dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="Ingredients"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ingredientsMultiline"
+            android:layout_width="382dp"
+            android:layout_height="78dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="370dp"
+        android:layout_height="69dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/InstructionsText"
+            android:layout_width="303dp"
+            android:layout_height="205dp"
+            android:layout_weight="1"
+            android:text="Instructions"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/InstructionsMultiline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="237dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/Savebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#009688"
+            android:text="Save" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/Backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#009688"
+            android:text="Back" />
+    </LinearLayout>
+
+</LinearLayout>
