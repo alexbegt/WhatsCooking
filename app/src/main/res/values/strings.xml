@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">Whats Cooking</string>
     <string name="sign_up">Sign Up</string>
+    <string name="already_having_account">Already have an Account?</string>
+    <string name="log_in">Log In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="full_name">Full Name</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="enter_tag">Enter Tag</string>
+    <string name="recipe_title">Recipe Title</string>
+    <string name="instructions">Instructions</string>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

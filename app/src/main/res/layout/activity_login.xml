@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7261C1BA"
+    android:backgroundTint="#B0B18F"
+    tools:context=".registration.LoginActivity">
+
+    <Button
+        android:id="@+id/btnLoginSignUp"
+        android:layout_width="210dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="358dp"
+        android:backgroundTint="#939F5C"
+        android:text="@string/sign_up"
+        android:textAlignment="center"
+        android:textColor="#263238"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="210dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="17dp"
+        android:backgroundTint="#939F5C"
+        android:text="@string/log_in"
+        android:textColor="#263238"
+        app:layout_constraintBottom_toTopOf="@+id/btnLoginSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/etLoginPasword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:backgroundTint="#939F5C"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="password"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/etLoginEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:backgroundTint="#939F5C"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/etLoginPasword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="emailAddress"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/PasswordText"
+        android:layout_width="96dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="4dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#939F5C"
+        android:text="@string/password"
+        android:textAlignment="center"
+        android:textColor="#263238"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/etLoginPasword"
+        app:layout_constraintTop_toBottomOf="@+id/EmailText"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/EmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:background="#F2F3AE"
+        android:backgroundTint="#939F5C"
+        android:text="@string/email"
+        android:textAlignment="center"
+        android:textColor="#263238"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/etLoginEmail"
+        app:layout_constraintTop_toTopOf="@+id/etLoginEmail"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
