@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.whatscooking.application.R;
 import com.whatscooking.application.utilities.RequestQueueHelper;
@@ -59,30 +58,33 @@ public class LoginActivity extends BaseLoginActivity {
         try {
             request.put(KEY_EMAIL, email);
             request.put(KEY_PASSWORD, password);
+            request.put(KEY_APPLICATION, APPLICATION);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST,
             LOGIN_URL,
-            request, (Response.Listener<JSONObject>) response -> {
-            pDialog.dismiss();
-            try {
-                if (response.getInt(KEY_STATUS) == 0) {
-                    session.loginUser(email, response.getString(KEY_FULL_NAME));
+            request,
+            response -> {
+                pDialog.dismiss();
+                try {
+                    if (response.getInt(KEY_STATUS) == 0) {
+                        session.loginUser(email, response.getString(KEY_FULL_NAME));
 
-                    loadDashboard();
-                } else {
-                    Toast.makeText(getApplicationContext(), response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
+                        loadDashboard();
+                    } else {
+                        Toast.makeText(getApplicationContext(), response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }, (Response.ErrorListener) error -> {
-            pDialog.dismiss();
+            },
+            error -> {
+                pDialog.dismiss();
 
-            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-        });
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            });
 
         RequestQueueHelper.getInstance(this).addToRequestQueue(jsArrayRequest);
     }

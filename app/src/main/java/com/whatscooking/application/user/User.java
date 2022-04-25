@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class User {
 
-    String username;
+    String email;
     String fullName;
     Date sessionExpiryDate;
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setFullName(String fullName) {
@@ -20,8 +20,8 @@ public class User {
         this.sessionExpiryDate = sessionExpiryDate;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
     public String getFullName() {

@@ -1,7 +1,7 @@
 <?php
 $response = array();
-include 'db/db_connect.php';
-include 'functions.php';
+
+include '../../util/functions.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -11,7 +11,21 @@ $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE); //convert JSON into array
  
 //Check for Mandatory parameters
-if(isset($input['email']) && isset($input['password']) && isset($input['full_name'])){
+if(isset($input['email']) && isset($input['password']) && isset($input['full_name']) && isset($input['application'])){
+    switch ($input['application']) {
+        case 'whats-cooking':
+            include '../../util/db/db_connect.php';
+            break;
+        case 'quiz-kidz':
+            include '../../util/db/qk_db_connect.php';
+            break;
+        default:
+            $response["status"] = 4;
+            $response["message"] = "Invalid application passed";
+            echo json_encode($response);
+            return;
+    }
+
 	$email = $input['email'];
 	$password = $input['password'];
 	$fullName = $input['full_name'];
@@ -31,7 +45,7 @@ if(isset($input['email']) && isset($input['password']) && isset($input['full_nam
 		
 			//Query to register new user
 			$insertQuery  = "INSERT INTO [DBO].[users](email, full_name, password, salt) VALUES (?,?,?,?)";
-			$params = array($email, $fullName, $passwordHash, $salt);
+			$params       = array($email, $fullName, $passwordHash, $salt);
 
 			$stmt = sqlsrv_query($conn, $insertQuery, array($email, $fullName, $passwordHash, $salt));
 

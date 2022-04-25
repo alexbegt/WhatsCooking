@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.whatscooking.application.R;
 import com.whatscooking.application.utilities.RequestQueueHelper;
@@ -68,6 +67,7 @@ public class SignUpActivity extends BaseLoginActivity {
             request.put(KEY_EMAIL, email);
             request.put(KEY_PASSWORD, password);
             request.put(KEY_FULL_NAME, fullName);
+            request.put(KEY_APPLICATION, APPLICATION);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class SignUpActivity extends BaseLoginActivity {
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST,
             REGISTER_URL,
             request,
-            (Response.Listener<JSONObject>) response -> {
+            response -> {
                 pDialog.dismiss();
 
                 try {
@@ -98,7 +98,7 @@ public class SignUpActivity extends BaseLoginActivity {
                     e.printStackTrace();
                 }
             },
-            (Response.ErrorListener) error -> {
+            error -> {
                 pDialog.dismiss();
 
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();

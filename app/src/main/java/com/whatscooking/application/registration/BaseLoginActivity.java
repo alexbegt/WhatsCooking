@@ -20,6 +20,9 @@ public abstract class BaseLoginActivity extends AppCompatActivity {
     protected static final String KEY_PASSWORD = "password";
     protected static final String KEY_FULL_NAME = "full_name";
 
+    protected static final String KEY_APPLICATION = "application";
+    protected static final String APPLICATION = "whats-cooking";
+
     protected EditText etEmail;
     protected EditText etPassword;
 
