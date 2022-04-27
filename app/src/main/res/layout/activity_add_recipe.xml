@@ -59,10 +59,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputtitle"
-        android:layout_width="223dp"
-        android:layout_height="49dp"
+        android:layout_width="229dp"
+        android:layout_height="50dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="18dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,9 +71,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/titlehere"
-            android:layout_width="220dp"
-            android:layout_height="48dp"
-            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="18dp"
             android:hint="Title Here..." />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,9 +156,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputing"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="80dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +167,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/listing"
             android:layout_width="250dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:gravity="center"
             android:hint="List your ingredients..." />
     </com.google.android.material.textfield.TextInputLayout>
@@ -191,19 +192,20 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/liststep"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="80dp"
-        android:layout_marginTop="549dp"
+        android:layout_marginTop="548dp"
+        android:layout_marginEnd="40dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/listhere"
             android:layout_width="250dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:gravity="center"
             android:hint="List your steps..." />
     </com.google.android.material.textfield.TextInputLayout>
