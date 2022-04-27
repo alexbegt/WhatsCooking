@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background_recipe_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E68664"
+    android:orientation="vertical"
+    tools:context=".recipe_card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/WhatsCookingTitle"
+            style="Inter"
+            android:layout_width="328dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_btn"
+            android:backgroundTint="#CE5151"
+            android:text="Whats Cooking"
+            android:textAlignment="gravity"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#733E35"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/rectitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="358dp"
+        android:layout_height="62dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="104dp"
+            android:layout_height="633dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/RecipeTitle"
+            style="Inter"
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_btn"
+            android:backgroundTint="#CE5151"
+            android:text="Title Here"
+            android:textAlignment="gravity"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#733E35"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/rectitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="118dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radBreakFast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BreakFast"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/radLunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lunch"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/radDinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dinner"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/radDessert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dessert/Snack"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/IngredientsTitle"
+            style="Inter"
+            android:layout_width="93dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_btn"
+            android:backgroundTint="#CE5151"
+            android:text="Ingredients"
+            android:textAlignment="gravity"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#733E35"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/rectitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/txtBoxIngredients"
+            android:layout_width="276dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/StepsTitle"
+            style="Inter"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_btn"
+            android:backgroundTint="#CE5151"
+            android:text="Steps"
+            android:textAlignment="gravity"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#733E35"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/rectitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="119dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/txtBoxSteps"
+            android:layout_width="277dp"
+            android:layout_height="94dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/backbtn"
+            style="Inter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:backgroundTint="#ffba79"
+            android:text="Back"
+            android:textAlignment="gravity"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#733E35"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/rectitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <Space
+            android:layout_width="164dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>
