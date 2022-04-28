@@ -61,16 +61,25 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputtitle"
-        android:layout_width="229dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:background="#FFFFFF"
         android:hint="Add Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rectitle"
-        app:layout_constraintTop_toBottomOf="@+id/addrecipe2"/>
+        app:layout_constraintTop_toBottomOf="@+id/addrecipe2" >
+
+        <EditText
+            android:id="@+id/titlehere"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <RadioButton
         android:id="@+id/breakfast"
@@ -157,7 +166,16 @@
         android:background="#FFFFFF"
         android:hint="List ingredients..."
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingredients"/>
+        app:layout_constraintTop_toBottomOf="@+id/ingredients">
+
+        <EditText
+            android:id="@+id/inglist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/steps"
@@ -188,7 +206,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/save"
