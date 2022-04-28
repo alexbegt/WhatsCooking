@@ -12,9 +12,12 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="ingredients">Ingredients</string>
     <string name="enter_tag">Enter Tag</string>
-    <string name="recipe_title">Recipe Title</string>
     <string name="instructions">Instructions</string>
     <string name="save">Save</string>
     <string name="back">Back</string>
     <string name="sign_out">Sign Out</string>
+    <string name="feed">Feed</string>
+    <string name="my_recipes">My Recipes</string>
+    <string name="saved_recipes">Saved Recipes</string>
+    <string name="what_s_cooking">What\'s Cooking</string>
 </resources>
