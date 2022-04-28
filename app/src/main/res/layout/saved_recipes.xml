@@ -1,56 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E68664"
+    android:backgroundTint="#E68664">
 
-    <ImageView
-        android:id="@+id/imageView"
+
+
+
+
+
+    <RadioButton
+        android:id="@+id/radioButton1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
-
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        android:text="@string/recipe_title"
+        android:textColor="#733E35"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/radioButton2"
+        app:layout_constraintDimensionRatio="1.9:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline7"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintTop_toTopOf="@id/TextView_Title" />
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1.3:1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/TextView_Title"
+        app:srcCompat="@drawable/samosa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline10"/>
 
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline3"
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/recipe_title"
+        android:textColor="#733E35"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/radioButton3"
+        app:layout_constraintDimensionRatio="1.9:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline7"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <RadioButton
+        android:id="@+id/radioButton3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
-
+        android:text="@string/recipe_title"
+        android:textColor="#733E35"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBaseline_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintDimensionRatio="1.9:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline7"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:srcCompat="@tools:sample/avatars" />
-
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -60,186 +79,174 @@
 
         app:layout_constraintGuide_percent="0.15" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.35" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:inputType="textMultiLine"
-        android:scaleType="centerCrop"
-        android:text="This is first recipe"
-
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine1"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-
-
-        android:inputType="textMultiLine"
-        android:scaleType="centerCrop"
-        android:text="This is second recipe"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-
-
-        android:inputType="textMultiLine"
-        android:scaleType="centerCrop"
-        android:text="This is third recipe"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.40" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.71" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Go to recipe"
-        android:textSize="10sp"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
-        app:layout_constraintDimensionRatio="1.9:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline6"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Go to recipe"
-        android:textSize="10sp"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintDimensionRatio="1.9:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Go to recipe"
-        android:textSize="10sp"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1.9:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.71" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#E68664"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.98" />
+
 
     <Button
         android:id="@+id/button_feed"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Feed"
-        android:textSize="30px"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline7"
-        app:layout_constraintHeight_percent="0.10"
-        app:layout_constraintLeft_toLeftOf="@+id/button_my_recipes"
-        app:layout_constraintStart_toStartOf="@id/guideline6"
-
-        app:layout_constraintWidth_percent="0.10" />
+        android:background="@drawable/button_title"
+        app:backgroundTint="#FFBA79"
+        android:text="@string/feed"
+        android:textColor="#733E35"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBotton_toTopOf="@id/guideline9"
+        app:layout_constraintDimensionRatio="15:4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintTop_toBottomOf="@id/guideline8" />
 
     <Button
         android:id="@+id/button_my_recipes"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="My Recipes"
-        android:textSize="10dp"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintDimensionRatio="2.3:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline5"
-        app:layout_constraintHeight_percent="0.30"
-        app:layout_constraintStart_toStartOf="@id/guideline10"
-        app:layout_constraintWidth_percent="0.10" />
+        android:background="@drawable/button_title"
+        app:backgroundTint="#FFBA79"
+        android:text="@string/my_recipes"
+        android:textColor="#733E35"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constrainStart_toStartOf="parent"
+        app:layout_constraintBotton_toTopOf="@id/guideline9"
+        app:layout_constraintDimensionRatio="15:4"
+        app:layout_constraintEnd_toEndOf="@id/guideline10"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintTop_toBottomOf="@id/guideline8" />
 
+    <TextView
+        android:id="@+id/TextView_Title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_title"
+        android:backgroundTint="#CE5151"
+        android:text="@string/what_s_cooking"
+        android:textAlignment="center"
+        android:textColor="#733E35"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:cornerRadius="10sp"
+        app:layout_constraintBotton_toTopOf="@id/guideline12"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline11" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50"
-        />
+        app:layout_constraintGuide_percent="0.50" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="20dp"
-        android:paddingEnd="10dp"
-        android:paddingRight="70dp"
+        android:background="@drawable/button_title"
+        android:backgroundTint="#CE5151"
         android:paddingBottom="10dp"
-        android:text="Saved Recipes"
+        android:text="@string/saved_recipes"
         android:textAlignment="center"
-        android:textColor="#170303"
+        android:textColor="#733E35"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toEndOf="@id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/button_my_recipes" />
+        app:backgroundTint="#FFBA79"
+        app:layout_constraintBottom_toTopOf="@+id/radioButton1"
+        app:layout_constraintBotton_toTopOf="@+id/imageView4"
+        app:layout_constraintDimensionRatio="9:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline13"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/TextView_Title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1.8:1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/kunafa_recipe"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline10"
+        />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1.7:1"
+        app:layout_constraintBottom_toBottomOf="@+id/button_my_recipes"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/tteokbokki_1_copy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline10"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
