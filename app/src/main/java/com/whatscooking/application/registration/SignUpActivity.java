@@ -2,39 +2,46 @@ package com.whatscooking.application.registration;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonObjectRequest;
+import androidx.annotation.NonNull;
+
+import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.RequestQueueHelper;
+import com.whatscooking.application.utilities.RetrofitAPI;
+import com.whatscooking.application.utilities.api.modal.RegisterModal;
+import com.whatscooking.application.utilities.api.response.ErrorResponse;
+import com.whatscooking.application.utilities.api.response.RegisterResponse;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUpActivity extends BaseActivity {
 
     private EditText etFirstName;
-    private String firstName;
-
     private EditText etLastName;
-    private String lastName;
-
     private EditText etEmail;
-    private String email;
-
     private EditText etUsername;
-    private String username;
-
     private EditText etPassword;
-    private String password;
 
-//    private EditText etConfirmPassword;
-//    private String confirmPassword;
+    private ProgressBar progressBar;
+    private static final Pattern PASSWORD_PATTERN =
+        Pattern.compile("^" +
+            "(?=.*[@#$%^&+=])" +     // at least 1 special character
+            "(?=\\S+$)" +            // no white spaces
+            ".{8,}" +                // at least 8 characters
+            "$");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +49,12 @@ public class SignUpActivity extends BaseActivity {
 
         setContentView(R.layout.activity_sign_up);
 
-//        etFirstName = findViewById(R.id.etFirstName);
-//        etLastName = findViewById(R.id.etLastName);
-//        etEmail = findViewById(R.id.etEmail);
-        etUsername = findViewById(R.id.etLoginEmail);
-        etPassword = findViewById(R.id.etLoginPasword);
-
-//        etConfirmPassword = findViewById(R.id.etConfirmPassword);
+        etFirstName = findViewById(R.id.etFirstName);
+        etLastName = findViewById(R.id.etLastName);
+        etEmail = findViewById(R.id.etEmail);
+        etUsername = findViewById(R.id.etUsername);
+        etPassword = findViewById(R.id.etPassword);
+        progressBar = findViewById(R.id.progressRegister);
 
         Button login = findViewById(R.id.btnSignUpLogin);
         Button signUp = findViewById(R.id.btnSignUp);
@@ -61,88 +67,78 @@ public class SignUpActivity extends BaseActivity {
         });
 
         signUp.setOnClickListener(v -> {
-            firstName = etFirstName.getText().toString().trim();
-            lastName = etLastName.getText().toString().trim();
+            RegisterModal registerModal = new RegisterModal(etFirstName.getText().toString().trim(),
+                etLastName.getText().toString().trim(),
+                etEmail.getText().toString().toLowerCase().trim(),
+                etUsername.getText().toString().toLowerCase().trim(),
+                etPassword.getText().toString().trim());
 
-            email = etEmail.getText().toString().toLowerCase().trim();
-            username = etUsername.getText().toString().toLowerCase().trim();
-
-            password = etPassword.getText().toString().trim();
-            //confirmPassword = etConfirmPassword.getText().toString().trim();
-
-            if (validateInputs()) {
-                registerUser();
+            if (validateInputs(registerModal)) {
+                registerUser(registerModal);
             }
         });
     }
 
-    private void registerUser() {
-        displayLoader("Signing Up.. Please wait...");
+    private void registerUser(RegisterModal registerModal) {
+        progressBar.setVisibility(View.VISIBLE);
 
-        JSONObject request = new JSONObject();
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
 
-        try {
-            //Populate the request parameters
-            request.put(KEY_FIRST_NAME, firstName);
-            request.put(KEY_LAST_NAME, lastName);
+        Call<RegisterResponse> call = retrofitAPI.registerUser(registerModal);
 
-            request.put(KEY_EMAIL, email);
-            request.put(KEY_USERNAME, username);
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<RegisterResponse> call, @NonNull Response<RegisterResponse> response) {
+                progressBar.setVisibility(View.INVISIBLE);
 
-            request.put(KEY_PASSWORD, password);
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        RegisterResponse responseFromAPI = response.body();
 
-            request.put(KEY_APPLICATION, APPLICATION);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+                        if (responseFromAPI.getAccountId() != null) {
+                            session.loginUser(registerModal.getUsername(),
+                                registerModal.getEmail(),
+                                registerModal.getFirstName(),
+                                registerModal.getLastName(),
+                                responseFromAPI.getAccountId()
+                            );
 
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST,
-            REGISTER_URL,
-            request,
-            response -> {
-                pDialog.dismiss();
-
-                try {
-                    //Check if user got registered successfully
-                    if (response.getInt(KEY_STATUS) == 0) {
-                        //Set the user session
-                        //session.loginUser(email, fullName);
-
-                        Toast.makeText(getApplicationContext(), response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
-
-                        //loadDashboard();
-                    } else if (response.getInt(KEY_STATUS) == 1) {
-                        etPassword.setError("Password doesn't meet standards!");
-                        etPassword.requestFocus();
-                    } else if (response.getInt(KEY_STATUS) == 2) {
-                        etUsername.setError("Username already in use!");
-                        etUsername.requestFocus();
-                    } else if (response.getInt(KEY_STATUS) == 3) {
-                        etEmail.setError("Email already in use!");
-                        etEmail.requestFocus();
+                            loadDashboard();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Contact Administrator about your account", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
-                        Toast.makeText(getApplicationContext(), response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Internal Server Error", Toast.LENGTH_SHORT).show();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            },
-            error -> {
-                pDialog.dismiss();
-
-                error.printStackTrace();
-
-                if (error.getMessage() == null) {
-                    Toast.makeText(getApplicationContext(), "Internal Server Error", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    if (response.errorBody() != null) {
+                        try {
+                            ErrorResponse errorResponse = new Gson().fromJson(
+                                response.errorBody().string(),
+                                ErrorResponse.class);
+
+                            Toast.makeText(getApplicationContext(), errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
-        );
 
-        jsArrayRequest.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            @Override
+            public void onFailure(@NonNull Call<RegisterResponse> call, @NonNull Throwable t) {
+                progressBar.setVisibility(View.INVISIBLE);
 
-        RequestQueueHelper.getInstance(this).addToRequestQueue(jsArrayRequest);
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -150,50 +146,48 @@ public class SignUpActivity extends BaseActivity {
      *
      * @return if the inputs are valid or not
      */
-    private boolean validateInputs() {
-        if (KEY_EMPTY.equals(firstName)) {
+    private boolean validateInputs(RegisterModal registerModal) {
+        if (KEY_EMPTY.equals(registerModal.getFirstName())) {
             etFirstName.setError("First Name cannot be empty");
             etFirstName.requestFocus();
             return false;
         }
 
-        if (KEY_EMPTY.equals(lastName)) {
+        if (KEY_EMPTY.equals(registerModal.getLastName())) {
             etLastName.setError("Last Name cannot be empty");
             etLastName.requestFocus();
             return false;
         }
 
-        if (KEY_EMPTY.equals(email)) {
+        if (KEY_EMPTY.equals(registerModal.getEmail())) {
             etEmail.setError("Email cannot be empty");
             etEmail.requestFocus();
             return false;
         }
 
-        if (KEY_EMPTY.equals(username)) {
+        if (KEY_EMPTY.equals(registerModal.getUsername())) {
             etUsername.setError("Username cannot be empty");
             etUsername.requestFocus();
             return false;
         }
 
-        if (KEY_EMPTY.equals(password)) {
+        if (KEY_EMPTY.equals(registerModal.getPassword())) {
             etPassword.setError("Password cannot be empty");
             etPassword.requestFocus();
             return false;
         }
 
-        // REMOVE DUE TO NOT BEING IN FINAL UI DESIGN
-//        if (KEY_EMPTY.equals(confirmPassword)) {
-//            etConfirmPassword.setError("Confirm Password cannot be empty");
-//            etConfirmPassword.requestFocus();
-//            return false;
-//        }
-//
-//        if (!password.equals(confirmPassword)) {
-//            etConfirmPassword.setError("Password and Confirm Password does not match");
-//            etConfirmPassword.requestFocus();
-//
-//            return false;
-//        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(registerModal.getEmail().trim()).matches()) {
+            etEmail.setError("Invalid Email");
+            etEmail.requestFocus();
+            return false;
+        }
+
+        if (!PASSWORD_PATTERN.matcher(registerModal.getPassword().trim()).matches()) {
+            etPassword.setError("Your password must be at least 8 characters and contain a special character.");
+            etPassword.requestFocus();
+            return false;
+        }
 
         return true;
     }

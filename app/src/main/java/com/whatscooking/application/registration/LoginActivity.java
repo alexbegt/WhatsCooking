@@ -2,8 +2,10 @@ package com.whatscooking.application.registration;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +30,8 @@ public class LoginActivity extends BaseActivity {
 
     private EditText etPassword;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +42,13 @@ public class LoginActivity extends BaseActivity {
 
         setContentView(R.layout.activity_login);
 
-        etUsername = findViewById(R.id.etLoginEmail);
-        etPassword = findViewById(R.id.etLoginPasword);
+        etUsername = findViewById(R.id.etLoginUsername);
+        etPassword = findViewById(R.id.etLoginPassword);
+
+        progressBar = findViewById(R.id.progressLoggingIn);
 
         Button register = findViewById(R.id.btnLoginSignUp);
-        Button login = findViewById(R.id.btnLogin);
+        Button login = findViewById(R.id.btnLogIn);
 
         register.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
@@ -61,10 +67,10 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void loginUser(LoginModal loginModal) {
-        displayLoader("Signing In.. Please wait...");
+        progressBar.setVisibility(View.VISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.13:3000/api/")
+            .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
@@ -74,7 +80,7 @@ public class LoginActivity extends BaseActivity {
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
-                pDialog.dismiss();
+                progressBar.setVisibility(View.INVISIBLE);
 
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
@@ -110,7 +116,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                pDialog.dismiss();
+                progressBar.setVisibility(View.INVISIBLE);
 
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
