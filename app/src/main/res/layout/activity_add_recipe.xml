@@ -67,18 +67,10 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="18dp"
         android:background="#FFFFFF"
+        android:hint="Add Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rectitle"
-        app:layout_constraintTop_toBottomOf="@+id/addrecipe2">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/titlehere"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="18dp"
-            android:hint="Title Here..." />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/addrecipe2"/>
 
     <RadioButton
         android:id="@+id/breakfast"
@@ -163,16 +155,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
+        android:hint="List ingredients..."
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingredients">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/listing"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:hint="List your ingredients..." />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/ingredients"/>
 
     <Button
         android:id="@+id/steps"
@@ -199,18 +184,11 @@
         android:layout_marginTop="548dp"
         android:layout_marginEnd="40dp"
         android:background="#FFFFFF"
+        android:hint="List the steps..."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/listhere"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:hint="List your steps..." />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/save"
