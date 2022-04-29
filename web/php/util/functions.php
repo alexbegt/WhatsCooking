@@ -2,20 +2,50 @@
 $random_salt_length = 32;
 
 /**
-* Queries the database and checks whether the user already exists
-* 
-* @param $username
-* 
+* Queries the database and checks whether the email provided is already in use
+*
+* @param $email
+*
 * @return
 */
-function userExists($email){
+function emailExits($email){
 	$query = "SELECT email FROM [DBO].[users] WHERE email = ?";
 	$params = [&$email];
 	global $conn;
 	$stmt = sqlsrv_query($conn, $query, $params, array( "Scrollable" => SQLSRV_CURSOR_KEYSET ));
 
 	if ($stmt === false) {
+		//sqlsrv_free_stmt( $stmt );
+	 	return false;
+	} else {
+		$row_count = sqlsrv_num_rows( $stmt );
+
+		if($row_count === 1){
+			sqlsrv_free_stmt( $stmt );
+			return true;
+		}
+
 		sqlsrv_free_stmt( $stmt );
+	}
+
+	return false;
+}
+
+/**
+* Queries the database and checks whether the user already exists
+* 
+* @param $username
+* 
+* @return
+*/
+function userExists($username){
+	$query = "SELECT email FROM [DBO].[users] WHERE username = ?";
+	$params = [&$email];
+	global $conn;
+	$stmt = sqlsrv_query($conn, $query, $params, array( "Scrollable" => SQLSRV_CURSOR_KEYSET ));
+
+	if ($stmt === false) {
+		//sqlsrv_free_stmt( $stmt );
 	 	return false;
 	} else {
 		$row_count = sqlsrv_num_rows( $stmt );
