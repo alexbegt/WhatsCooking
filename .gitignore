@@ -23,3 +23,9 @@ Thumbs.db
 .externalNativeBuild
 .cxx
 local.properties
+
+/*.log
+
+/web/node/node_modules
+
+/web/node/package-lock.json

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView welcomeText = findViewById(R.id.welcomeText);
 
-        welcomeText.setText("Welcome " + user.getFullName() + ", your session will expire on " + user.getSessionExpiryDate());
+        welcomeText.setText("Welcome " + user.getFirstName() + " " + user.getLastName() + ", your session will expire on " + user.getSessionExpirationDate());
 
         Button logoutBtn = findViewById(R.id.btnSignOut);
 
