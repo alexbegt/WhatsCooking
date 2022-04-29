@@ -67,7 +67,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:background="#FFFFFF"
-        android:hint="Add Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rectitle"
         app:layout_constraintTop_toBottomOf="@+id/addrecipe2" >
@@ -78,6 +77,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Add Title"
+            android:textSize="30sp"
+            android:textStyle="bold"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -164,7 +166,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:hint="List ingredients..."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredients">
 
@@ -174,6 +175,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="List ingredients..."
+            android:textSize="18sp"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -202,7 +205,6 @@
         android:layout_marginTop="548dp"
         android:layout_marginEnd="40dp"
         android:background="#FFFFFF"
-        android:hint="List the steps..."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
@@ -214,6 +216,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="List the steps..."
+            android:textSize="18sp"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
