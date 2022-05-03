@@ -131,7 +131,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dinner" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/viewimg"
         android:layout_width="159dp"
         android:layout_height="163dp"
         android:layout_marginStart="20dp"
