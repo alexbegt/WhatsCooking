@@ -141,10 +141,24 @@
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <Button
+        android:id="@+id/addimg"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="#CE5151"
+        android:text="Add Picture"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="238dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <Button
         android:id="@+id/ingredients"
         android:layout_width="190dp"
         android:layout_height="48dp"
         android:layout_marginStart="102dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="102dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
@@ -202,7 +216,7 @@
         android:id="@+id/liststep"
         android:layout_width="330dp"
         android:layout_height="80dp"
-        android:layout_marginTop="548dp"
+        android:layout_marginTop="558dp"
         android:layout_marginEnd="40dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -211,14 +225,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/steplist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:hint="List the steps..."
-            android:textSize="18sp"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
