@@ -48,7 +48,7 @@ public class AddRecipeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_recipe_new);
+        setContentView(R.layout.activity_add_recipe);
 
         User user = session.getUserDetails();
 
@@ -177,7 +177,7 @@ public class AddRecipeActivity extends BaseActivity {
 
     public void addRecipe(AddRecipeModal addRecipeModal) {
         Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.13:3000")
+            .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
