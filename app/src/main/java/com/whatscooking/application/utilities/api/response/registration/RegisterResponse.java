@@ -1,4 +1,4 @@
-package com.whatscooking.application.utilities.api.response;
+package com.whatscooking.application.utilities.api.response.registration;
 
 public class RegisterResponse {
 
@@ -12,4 +12,3 @@ public class RegisterResponse {
         return this.accountId;
     }
 }
-

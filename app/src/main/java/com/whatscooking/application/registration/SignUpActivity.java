@@ -14,10 +14,10 @@ import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.RetrofitAPI;
-import com.whatscooking.application.utilities.api.modal.RegisterModal;
+import com.whatscooking.application.utilities.api.RetrofitAPI;
+import com.whatscooking.application.utilities.api.modal.registration.RegisterModal;
 import com.whatscooking.application.utilities.api.response.ErrorResponse;
-import com.whatscooking.application.utilities.api.response.RegisterResponse;
+import com.whatscooking.application.utilities.api.response.registration.RegisterResponse;
 
 import java.util.regex.Pattern;
 
@@ -177,7 +177,7 @@ public class SignUpActivity extends BaseActivity {
             return false;
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(registerModal.getEmail().trim()).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(registerModal.getEmail().trim()).matches()) {
             etEmail.setError("Invalid Email");
             etEmail.requestFocus();
             return false;

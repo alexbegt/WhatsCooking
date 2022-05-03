@@ -1,5 +1,7 @@
 package com.whatscooking.application.utilities.api.response;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ErrorResponse {
@@ -9,5 +11,13 @@ public class ErrorResponse {
 
     public String getMessage() {
         return this.message;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "ErrorResponse{" +
+            "message='" + message + '\'' +
+            '}';
     }
 }

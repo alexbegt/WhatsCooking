@@ -62,4 +62,30 @@ router.post('/login', function (req, res) {
     }
 });
 
+router.post('/recipes/getAllRecipesByAuthor', function (req, res) {
+    if (!req.body.accountId) {
+        res.status(400).json({ message: "Missing required parameters" });
+    } else {
+        databaseSql.handleFetchRecipes(req.body.accountId)
+            .then(ok => { res.status(200).json(ok); })
+            .catch(err => { res.status(500).json({ message: err }); });
+    }
+});
+
+router.post('/recipes/getAllRecipes', function (req, res) {
+    databaseSql.handleFetchAllRecipes()
+        .then(ok => { res.status(200).json(ok); })
+        .catch(err => { res.status(200).json(err); });
+});
+
+router.post('/recipes/addRecipe', function (req, res) {
+    if (!req.body.recipeName || !req.body.ingredients || !req.body.instructions || !req.body.imageData || !req.body.category || !req.body.authorId) {
+        res.status(400).json({ message: "Missing required parameters" });
+    } else {
+        databaseSql.handleAddRecipe(req.body.recipeName, req.body.ingredients, req.body.instructions, req.body.imageData, req.body.category, req.body.authorId)
+            .then(ok => { res.status(200).json(ok); })
+            .catch(err => { res.status(500).json({ message: err }); });
+    }
+});
+
 module.exports = router;

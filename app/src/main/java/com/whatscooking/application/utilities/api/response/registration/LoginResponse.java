@@ -1,4 +1,4 @@
-package com.whatscooking.application.utilities.api.response;
+package com.whatscooking.application.utilities.api.response.registration;
 
 public class LoginResponse {
 
