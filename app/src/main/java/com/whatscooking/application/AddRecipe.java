@@ -26,6 +26,8 @@ public class AddRecipe extends AppCompatActivity {
         addimg = (Button) findViewById(R.id.addimg);
         viewimg = findViewById(R.id.viewimg);
 
+        /*Trouble with errors*/
+
         viewimg.setOnClickListener(view -> {
             mGetContent.launch(input: "image/*");
         });
@@ -33,6 +35,8 @@ public class AddRecipe extends AppCompatActivity {
 
 
     }
+
+    /*Trouble with errors*/
 
     ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
         uri -> {
