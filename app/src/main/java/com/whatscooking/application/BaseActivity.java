@@ -5,7 +5,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.whatscooking.application.user.SessionHandler;
+import com.whatscooking.application.recipes.AddRecipeActivity;
+import com.whatscooking.application.utilities.user.SessionHandler;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * Launch Dashboard Activity on Successful Sign Up
      */
     protected void loadDashboard() {
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), AddRecipeActivity.class);
         startActivity(i);
         finish();
     }

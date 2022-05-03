@@ -13,10 +13,10 @@ import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.RetrofitAPI;
-import com.whatscooking.application.utilities.api.modal.LoginModal;
+import com.whatscooking.application.utilities.api.RetrofitAPI;
+import com.whatscooking.application.utilities.api.modal.registration.LoginModal;
 import com.whatscooking.application.utilities.api.response.ErrorResponse;
-import com.whatscooking.application.utilities.api.response.LoginResponse;
+import com.whatscooking.application.utilities.api.response.registration.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

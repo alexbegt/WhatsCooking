@@ -8,261 +8,256 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E68664"
-    tools:context=".AddRecipe">
+    tools:context=".recipes.AddRecipeActivity">
 
-    <Button
-        android:id="@+id/addrecipe2"
-        style="Inter"
-        android:layout_width="350dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="20dp"
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
-        android:text="Add Recipe"
-        android:textAlignment="gravity"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:fontFamily="@font/inter"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/add_recipe_title"
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/rectitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
-
-    <Button
-        android:id="@+id/rectitle"
-        style="Inter"
-        android:layout_width="143dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/round_btn"
-        android:backgroundTint="#CE5151"
-        android:text="Title"
-        android:textAlignment="gravity"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/breakfast"
-        app:layout_constraintEnd_toStartOf="@+id/inputtitle"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addrecipe2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputtitle"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/rectitle"
-        app:layout_constraintTop_toBottomOf="@+id/addrecipe2" >
-
-        <EditText
-            android:id="@+id/titlehere"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Add Title"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <RadioButton
-        android:id="@+id/breakfast"
-        android:layout_width="170dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="211dp"
-        android:text="Breakfast"
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="141dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="#CE5151"
+        android:fontFamily="@font/inter"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/recipe_title"
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/lunch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/lunch"
-        android:layout_width="170dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:text="Lunch"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dinner"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/dinner"
-        android:layout_width="170dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:text="Dinner"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dessert"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/dessert"
-        android:layout_width="170dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:text="Dessert/Snacks"
-        android:textColor="#000000"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dinner" />
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <EditText
+        android:id="@+id/etRecipeTitle"
+        android:layout_width="214dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints="name"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:hint="@string/title_here"
+        android:textAlignment="center"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <TextView
+            android:id="@+id/radioGroupHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:gravity="center"
+            android:text="@string/recipe_category"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBreakfast"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:fontFamily="@font/inter"
+            android:text="@string/breakfast"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButtonLunch"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:fontFamily="@font/inter"
+            android:text="@string/lunch"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDinner"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:fontFamily="@font/inter"
+            android:text="@string/dinner"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDessert"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:fontFamily="@font/inter"
+            android:text="@string/dessert"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RadioGroup>
 
     <ImageView
-        android:id="@+id/viewimg"
-        android:layout_width="159dp"
-        android:layout_height="163dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toEndOf="@+id/breakfast"
-        app:layout_constraintTop_toBottomOf="@+id/inputtitle"
+        android:id="@+id/recipe_image"
+        android:layout_width="175dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/etRecipeTitle"
+        android:contentDescription="@string/food_image"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <Button
-        android:id="@+id/addimg"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnUploadPicture"
+        android:layout_width="139dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
-        android:text="Add Picture"
+        android:fontFamily="@font/inter"
+        android:text="@string/upload_picture"
         android:textColor="#000000"
         android:textSize="15sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="238dp"
-        tools:layout_editor_absoluteY="286dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_image" />
 
-    <Button
-        android:id="@+id/ingredients"
-        android:layout_width="190dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="102dp"
+    <TextView
+        android:id="@+id/ingredientsTitle"
+        android:layout_width="169dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
-        android:text="Ingredients"
-        android:textAlignment="gravity"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:fontFamily="@font/inter"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/ingredients"
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dessert" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUploadPicture" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputing"
+    <EditText
+        android:id="@+id/etIngredients"
         android:layout_width="330dp"
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints="name"
         android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:hint="@string/list_ingredients"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingredients">
+        app:layout_constraintTop_toBottomOf="@+id/ingredientsTitle"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <EditText
-            android:id="@+id/inglist"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="List ingredients..."
-            android:textSize="18sp"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/steps"
-        android:layout_width="190dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="18dp"
+    <TextView
+        android:id="@+id/stepsTitle"
+        android:layout_width="169dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
-        android:text="Steps"
-        android:textAlignment="gravity"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:fontFamily="@font/inter"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/steps"
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputing" />
+        app:layout_constraintTop_toBottomOf="@+id/etIngredients" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/liststep"
+    <EditText
+        android:id="@+id/etSteps"
         android:layout_width="330dp"
         android:layout_height="80dp"
-        android:layout_marginTop="558dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints="name"
         android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:hint="@string/list_steps"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/steplist"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="List the steps..."
-            android:inputType="textPersonName"
-            android:textSize="18sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/stepsTitle"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/btnSaveRecipe"
         android:layout_width="135dp"
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="19dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
-        android:text="Save"
+        android:fontFamily="@font/inter"
+        android:text="@string/save"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liststep" />
+        app:layout_constraintTop_toBottomOf="@+id/etSteps" />
 
     <Button
-        android:id="@+id/discard"
+        android:id="@+id/btnDiscardRecipe"
         android:layout_width="135dp"
         android:layout_height="48dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="31dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
-        android:text="Discard"
+        android:fontFamily="@font/inter"
+        android:text="@string/discard"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liststep" />
+        app:layout_constraintTop_toBottomOf="@+id/etSteps" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.whatscooking.application.utilities.api.modal;
+package com.whatscooking.application.utilities.api.modal.registration;
 
 import androidx.annotation.NonNull;
 
@@ -9,7 +9,7 @@ public class RegisterModal {
     private final String email;
     private final String username;
     private final String password;
-    
+
     public RegisterModal(String firstName, String lastName, String email, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;

@@ -1,4 +1,4 @@
-package com.whatscooking.application.user;
+package com.whatscooking.application.utilities.user;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -44,8 +44,8 @@ public class SessionHandler {
 
         Date date = new Date();
 
-        //Set user session for next 7 days
-        long millis = date.getTime() + (7 * 24 * 60 * 60 * 1000);
+        //Set user session for next 1 days
+        long millis = date.getTime() + (24 * 60 * 60 * 1000);
         mEditor.putLong(KEY_EXPIRES, millis);
         mEditor.commit();
     }
@@ -95,8 +95,6 @@ public class SessionHandler {
         user.setLastName(mPreferences.getString(KEY_LAST_NAME, KEY_EMPTY));
 
         user.setAccountId(mPreferences.getString(KEY_ACCOUNT_ID, KEY_EMPTY));
-
-        user.setSessionExpirationDate(new Date(mPreferences.getLong(KEY_EXPIRES, 0)));
 
         return user;
     }
