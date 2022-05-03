@@ -1,12 +1,20 @@
 package com.whatscooking.application;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 public class AddRecipe extends AppCompatActivity {
 
@@ -14,7 +22,9 @@ public class AddRecipe extends AppCompatActivity {
     EditText inglist;
     EditText steplist;
     Button addimg;
+    Button save;
     ImageView viewimg;
+    private String image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +35,11 @@ public class AddRecipe extends AppCompatActivity {
 
         addimg = (Button) findViewById(R.id.addimg);
         viewimg = findViewById(R.id.viewimg);
+        save = findViewById(R.id.save);
 
-        /*Trouble with errors*/
 
-        viewimg.setOnClickListener(view -> {
-            mGetContent.launch(input: "image/*");
+        save.setOnClickListener(view -> {
+            mGetContent.launch("image/*");
         });
 
 
@@ -42,7 +52,7 @@ public class AddRecipe extends AppCompatActivity {
         uri -> {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
-                imageView.setImageBitmap(bitmap);
+                viewimg.setImageBitmap(bitmap);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
                 this.image = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
