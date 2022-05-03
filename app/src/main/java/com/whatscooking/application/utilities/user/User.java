@@ -1,8 +1,6 @@
-package com.whatscooking.application.user;
+package com.whatscooking.application.utilities.user;
 
 import androidx.annotation.NonNull;
-
-import java.util.Date;
 
 public class User {
 
@@ -11,7 +9,7 @@ public class User {
     String firstName;
     String lastName;
     String accountId;
-    Date sessionExpirationDate;
+//    Date sessionExpirationDate;
 
     public void setUsername(String username) {
         this.username = username;
@@ -53,13 +51,13 @@ public class User {
         return accountId;
     }
 
-    public void setSessionExpirationDate(Date sessionExpirationDate) {
-        this.sessionExpirationDate = sessionExpirationDate;
-    }
-
-    public Date getSessionExpirationDate() {
-        return sessionExpirationDate;
-    }
+//    public void setSessionExpirationDate(Date sessionExpirationDate) {
+//        this.sessionExpirationDate = sessionExpirationDate;
+//    }
+//
+//    public Date getSessionExpirationDate() {
+//        return sessionExpirationDate;
+//    }
 
     @NonNull
     @Override
@@ -70,7 +68,7 @@ public class User {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", accountId='" + accountId + '\'' +
-            ", sessionExpirationDate=" + sessionExpirationDate +
+//            ", sessionExpirationDate=" + sessionExpirationDate +
             '}';
     }
 }
