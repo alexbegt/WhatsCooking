@@ -15,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
 
     private SessionHandler session;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
         session = new SessionHandler(getApplicationContext());
@@ -39,4 +39,6 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
     }
+
+
 }
