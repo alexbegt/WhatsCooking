@@ -19,7 +19,6 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
-import com.whatscooking.application.MainActivity;
 import com.whatscooking.application.R;
 import com.whatscooking.application.utilities.api.RetrofitAPI;
 import com.whatscooking.application.utilities.api.modal.recipe.AddRecipeModal;
@@ -85,7 +84,7 @@ public class AddRecipeActivity extends BaseActivity {
         });
 
         discardBtn.setOnClickListener(v -> {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), MyRecipesActivity.class);
             startActivity(i);
             finish();
         });

@@ -1,10 +1,12 @@
-package com.whatscooking.application;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.whatscooking.application.recipes;
 
 import android.os.Bundle;
 
-public class recipe_card extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.whatscooking.application.R;
+
+public class RecipeCardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
