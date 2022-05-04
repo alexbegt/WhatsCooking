@@ -114,7 +114,7 @@
         android:textColor="#733E35"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBotton_toTopOf="@id/guideline9"
+        app:layout_constraintBottom_toTopOf="@id/guideline9"
         app:layout_constraintDimensionRatio="15:4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
@@ -131,8 +131,8 @@
         android:textColor="#733E35"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constrainStart_toStartOf="parent"
-        app:layout_constraintBotton_toTopOf="@id/guideline9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline9"
         app:layout_constraintDimensionRatio="15:4"
         app:layout_constraintEnd_toEndOf="@id/guideline10"
         app:layout_constraintHeight_percent="0.07"
@@ -150,12 +150,11 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:cornerRadius="10sp"
-        app:layout_constraintBotton_toTopOf="@id/guideline12"
         app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintTop_toBottomOf="@id/guideline11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline11" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
@@ -178,7 +177,6 @@
         android:textStyle="bold"
         app:backgroundTint="#FFBA79"
         app:layout_constraintBottom_toTopOf="@+id/radioButton1"
-        app:layout_constraintBotton_toTopOf="@+id/imageView4"
         app:layout_constraintDimensionRatio="9:1"
         app:layout_constraintEnd_toEndOf="@id/guideline13"
         app:layout_constraintStart_toStartOf="@id/guideline2"
