@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.whatscooking.application.recipes.AddRecipeActivity;
+import com.whatscooking.application.recipes.FeedPageActivity;
 import com.whatscooking.application.utilities.user.SessionHandler;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -27,10 +27,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * Launch Dashboard Activity on Successful Sign Up
+     * Launch Feed Activity on Successful Sign Up/Sign In
      */
     protected void loadDashboard() {
-        Intent i = new Intent(getApplicationContext(), AddRecipeActivity.class);
+        Intent i = new Intent(getApplicationContext(), FeedPageActivity.class);
         startActivity(i);
         finish();
     }

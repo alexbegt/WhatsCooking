@@ -21,10 +21,10 @@ public interface RetrofitAPI {
     @POST("api/register")
     Call<RegisterResponse> registerUser(@Body RegisterModal registerModal);
 
-    @POST("api/recipes/getAllByAuthor")
+    @POST("api/recipes/getAllRecipesByAuthor")
     Call<RecipesResponse> getRecipesForAccount(@Body AccountRecipesModal accountRecipesModal);
 
-    @POST("api/recipes/getAll")
+    @POST("api/recipes/getAllRecipes")
     Call<RecipesResponse> getRecipes();
 
     @POST("api/recipes/addRecipe")

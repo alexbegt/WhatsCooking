@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="#E68664"
     android:orientation="vertical"
-    tools:context=".recipe_card">
+    tools:context=".recipes.RecipeCardActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

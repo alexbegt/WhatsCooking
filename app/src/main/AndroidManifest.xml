@@ -17,16 +17,26 @@
         android:theme="@style/Theme.WhatsCooking">
 
         <activity
-            android:name=".recipe_card"
+            android:name=".recipes.RecipeCardActivity"
             android:exported="false" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".recipes.AddRecipeActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".recipes.AddRecipeActivity"
+            android:name=".recipes.FeedPageActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".recipes.MyRecipesActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".recipes.SavedRecipesActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
