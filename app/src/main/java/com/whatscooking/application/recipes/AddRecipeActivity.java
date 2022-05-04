@@ -191,7 +191,11 @@ public class AddRecipeActivity extends BaseActivity {
                         AddRecipeResponse responseFromAPI = response.body();
 
                         if (responseFromAPI.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Contact Administrator about your account", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(getApplicationContext(), MyRecipesActivity.class);
+                            startActivity(i);
+                            finish();
+
+                            return;
                         }
                     }
 
