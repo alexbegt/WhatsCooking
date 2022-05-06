@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
@@ -38,6 +39,7 @@ public class FeedPageActivity extends BaseActivity {
     private TextView recipesLoading;
     private Button retryLoadingBtn;
     private ListView recipeList;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,22 +54,28 @@ public class FeedPageActivity extends BaseActivity {
         retryLoadingBtn = findViewById(R.id.btnRetry);
         retryLoadingBtn.setOnClickListener(view -> fetchRecipes());
 
+        swipeRefreshLayout = findViewById(R.id.swipeToRefresh);
+
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            swipeRefreshLayout.setRefreshing(false);
+            fetchRecipes();
+        });
+
         fetchRecipes();
 
         recipeList.setOnItemClickListener((parent, view, position, id) -> {
             Recipe recipe = recipeArrayList.get(position);
 
             if (recipe != null) {
-                // TODO MAKE THIS LINK TO RECIPE CARD, WHO IS HANDLING THIS?
-                Intent i = new Intent(FeedPageActivity.this, AddRecipeActivity.class);
+                Intent i = new Intent(getApplicationContext(), RecipeCardActivity.class);
 
                 Bundle bundle = new Bundle();
 
+                bundle.putInt("recipe_id", recipe.getUniqueId());
                 bundle.putString("recipe_title", recipe.getRecipeName());
                 bundle.putString("recipe_ingredients", recipe.getIngredients());
                 bundle.putString("recipe_steps", recipe.getInstructions());
-                bundle.putString("recipe_category", recipe.getCategory());
-
+                bundle.putInt("recipe_category_id", recipe.getCategoryId());
                 i.putExtras(bundle);
 
                 startActivity(i);
@@ -100,6 +108,8 @@ public class FeedPageActivity extends BaseActivity {
         recipesLoading.setVisibility(View.VISIBLE);
         recipesLoading.setText(R.string.loading_recipes);
         retryLoadingBtn.setVisibility(View.INVISIBLE);
+        recipeArrayList.clear();
+        recipeList.setAdapter(null);
 
         call.enqueue(new Callback<RecipesResponse>() {
             @Override
