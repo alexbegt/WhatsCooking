@@ -10,15 +10,17 @@ public class Recipe {
     private final String recipeName;
     private final String imageData;
     private final String category;
+    private final String categoryTag;
     private final int authorId;
 
-    public Recipe(int recipeId, String ingredients, String instructions, String recipeName, String imageData, String category, int authorId) {
+    public Recipe(int recipeId, String ingredients, String instructions, String recipeName, String imageData, String category, String categoryTag, int authorId) {
         this.recipeId = recipeId;
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.recipeName = recipeName;
         this.imageData = imageData;
         this.category = category;
+        this.categoryTag = categoryTag;
         this.authorId = authorId;
     }
 
@@ -36,6 +38,10 @@ public class Recipe {
 
     public String getCategory() {
         return this.category;
+    }
+
+    public String getCategoryTag() {
+        return this.categoryTag;
     }
 
     public String getRecipeName() {
@@ -60,6 +66,7 @@ public class Recipe {
             ", recipeName='" + this.recipeName + '\'' +
             ", imageData='" + this.imageData + '\'' +
             ", category=" + this.category + '\'' +
+            ", categoryTag=" + this.categoryTag + '\'' +
             ", authorId=" + this.authorId +
             '}';
     }

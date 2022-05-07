@@ -12,9 +12,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected static final String KEY_EMPTY = "";
 
-    protected static final String KEY_APPLICATION = "application";
-    protected static final String APPLICATION = "whats-cooking";
-
     protected final String URL = "https://whatscookingapp.azurewebsites.net";
 
     protected SessionHandler session;
@@ -29,7 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * Launch Feed Activity on Successful Sign Up/Sign In
      */
-    protected void loadDashboard() {
+    protected void loadFeed() {
         Intent i = new Intent(getApplicationContext(), FeedPageActivity.class);
         startActivity(i);
         finish();
