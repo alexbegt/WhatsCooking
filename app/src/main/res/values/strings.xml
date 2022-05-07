@@ -52,5 +52,6 @@
 
     <!--    Add Recipe Card-->
     <string name="add_recipe">Add recipe</string>
+    <string name="what_s_cooking" />
     <!--    Add Recipe Card-->
 </resources>
