@@ -91,6 +91,7 @@
             android:layout_marginTop="5dp"
             android:checked="false"
             android:fontFamily="@font/inter"
+            android:tag="radioButtonBreakfast"
             android:text="@string/breakfast"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -102,6 +103,7 @@
             android:layout_marginTop="5dp"
             android:checked="false"
             android:fontFamily="@font/inter"
+            android:tag="radioButtonLunch"
             android:text="@string/lunch"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -113,6 +115,7 @@
             android:layout_marginTop="5dp"
             android:checked="false"
             android:fontFamily="@font/inter"
+            android:tag="radioButtonDinner"
             android:text="@string/dinner"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -124,6 +127,7 @@
             android:layout_marginTop="5dp"
             android:checked="false"
             android:fontFamily="@font/inter"
+            android:tag="radioButtonDessert"
             android:text="@string/dessert"
             android:textSize="18sp"
             android:textStyle="bold" />

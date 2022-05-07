@@ -2,9 +2,11 @@ package com.whatscooking.application.utilities.api;
 
 import com.whatscooking.application.utilities.api.modal.recipe.AccountRecipesModal;
 import com.whatscooking.application.utilities.api.modal.recipe.AddRecipeModal;
+import com.whatscooking.application.utilities.api.modal.recipe.RecipeImageModal;
 import com.whatscooking.application.utilities.api.modal.registration.LoginModal;
 import com.whatscooking.application.utilities.api.modal.registration.RegisterModal;
 import com.whatscooking.application.utilities.api.response.recipe.AddRecipeResponse;
+import com.whatscooking.application.utilities.api.response.recipe.RecipeImageResponse;
 import com.whatscooking.application.utilities.api.response.recipe.RecipesResponse;
 import com.whatscooking.application.utilities.api.response.registration.LoginResponse;
 import com.whatscooking.application.utilities.api.response.registration.RegisterResponse;
@@ -29,4 +31,7 @@ public interface RetrofitAPI {
 
     @POST("api/recipes/addRecipe")
     Call<AddRecipeResponse> addRecipe(@Body AddRecipeModal addRecipeModal);
+
+    @POST("api/recipes/getRecipeImage")
+    Call<RecipeImageResponse> getRecipeImage(@Body RecipeImageModal addRecipeModal);
 }

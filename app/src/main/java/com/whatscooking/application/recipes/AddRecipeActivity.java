@@ -76,7 +76,7 @@ public class AddRecipeActivity extends BaseActivity {
                     steps.getText().toString().trim(),
                     this.imageData,
                     radioButton.getText().toString().trim(),
-                    radioButton.getId(),
+                    radioButton.getTag().toString(),
                     user.getAccountId()
                 );
 
