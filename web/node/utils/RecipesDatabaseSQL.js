@@ -111,8 +111,6 @@ const handleFetchAllRecipes = () => new Promise((resolve, reject) => {
                 message: "No recipes exist"
             });
 
-            console.log(recipeList);
-
             resolve({
                 successful: true,
                 recipes: recipeList,
