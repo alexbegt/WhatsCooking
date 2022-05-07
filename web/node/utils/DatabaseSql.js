@@ -211,7 +211,7 @@ const handleFetchRecipes = (accountId) => new Promise((resolve, reject) => {
         }
     });
 
-    var request = new Request("SELECT uniqueId, ingredients, instructions, recipeName, category FROM DBO.recipe WHERE authorId = @AuthorId ", function (err, rowCount) {
+    var request = new Request("SELECT recipeId, recipeName, ingredients, instructions, imageData, category, categoryId FROM DBO.recipes WHERE authorId = @AuthorId ", function (err, rowCount) {
         if (err) {
             console.log("Request error: " + err);
 
@@ -229,11 +229,13 @@ const handleFetchRecipes = (accountId) => new Promise((resolve, reject) => {
 
     request.on('row', function (columns) {
         recipeList.push({
-            uniqueId: columns['uniqueId'].value,
+            recipeId: columns['recipeId'].value,
+            recipeName: columns['recipeName'].value,
             ingredients: columns['ingredients'].value,
             instructions: columns['instructions'].value,
-            recipeName: columns['recipeName'].value,
+            imageData: columns['imageData'].value,
             category: columns['category'].value,
+            categoryId: columns['categoryId'].value,
             authorId: accountId
         });
     });
@@ -287,7 +289,11 @@ const handleFetchAllRecipes = () => new Promise((resolve, reject) => {
                 message: err
             });
         } else {
-            if (recipeList.length === 0) reject("No recipes exist");
+            if (recipeList.length === 0) reject({
+                successful: true,
+                recipes: [],
+                message: "No recipes exist"
+            });
 
             console.log(recipeList);
 
@@ -307,6 +313,7 @@ const handleFetchAllRecipes = () => new Promise((resolve, reject) => {
             instructions: columns['instructions'].value,
             imageData: columns['imageData'].value,
             category: columns['category'].value,
+            categoryId: columns['categoryId'].value,
             authorId: columns['authorId'].value
         });
     });
@@ -332,7 +339,7 @@ const handleFetchAllRecipes = () => new Promise((resolve, reject) => {
 /*
     Add recipes to database
 */
-const handleAddRecipe = (recipeName, ingredients, instructions, imageData, category, authorId) => new Promise((resolve, reject) => {
+const handleAddRecipe = (recipeName, ingredients, instructions, imageData, category, categoryId, authorId) => new Promise((resolve, reject) => {
     var recipeInformation = {};
 
     const connection = new Connection({
@@ -353,7 +360,7 @@ const handleAddRecipe = (recipeName, ingredients, instructions, imageData, categ
         }
     });
 
-    var request = new Request("INSERT INTO DBO.recipes (recipeName, ingredients, instructions, imageData, category, authorId) OUTPUT INSERTED.recipeId VALUES (@RecipeName, @Ingredients, @Instructions, @ImageData, @Category, @AuthorId)", function (err, rowCount) {
+    var request = new Request("INSERT INTO DBO.recipes (recipeName, ingredients, instructions, imageData, category, categoryId, authorId) OUTPUT INSERTED.recipeId VALUES (@RecipeName, @Ingredients, @Instructions, @ImageData, @Category, @CategoryId, @AuthorId)", function (err, rowCount) {
         if (err) {
             console.log("Request error: " + err);
 
@@ -370,6 +377,7 @@ const handleAddRecipe = (recipeName, ingredients, instructions, imageData, categ
     request.addParameter('Instructions', TYPES.NVarChar, instructions);
     request.addParameter('ImageData', TYPES.NVarChar, imageData);
     request.addParameter('Category', TYPES.NVarChar, category);
+    request.addParameter('CategoryId', TYPES.Int, categoryId);
     request.addParameter('AuthorId', TYPES.Int, authorId);
 
     request.on('row', function (columns) {
