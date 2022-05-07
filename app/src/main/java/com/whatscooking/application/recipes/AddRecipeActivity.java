@@ -44,6 +44,8 @@ public class AddRecipeActivity extends BaseActivity {
     private EditText steps;
     private RadioGroup radioGroup;
 
+    private Button saveBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,7 @@ public class AddRecipeActivity extends BaseActivity {
         radioGroup = findViewById(R.id.radioGroup);
 
         Button uploadPictureBtn = findViewById(R.id.btnUploadPicture);
-        Button saveBtn = findViewById(R.id.btnSaveRecipe);
+        saveBtn = findViewById(R.id.btnSaveRecipe);
         Button discardBtn = findViewById(R.id.btnDiscardRecipe);
 
         uploadPictureBtn.setOnClickListener(view -> mGetContent.launch("image/*"));
@@ -74,6 +76,7 @@ public class AddRecipeActivity extends BaseActivity {
                     steps.getText().toString().trim(),
                     this.imageData,
                     radioButton.getText().toString().trim(),
+                    radioButton.getId(),
                     user.getAccountId()
                 );
 
@@ -183,6 +186,8 @@ public class AddRecipeActivity extends BaseActivity {
 
         Call<AddRecipeResponse> call = retrofitAPI.addRecipe(addRecipeModal);
 
+        saveBtn.setClickable(false);
+
         call.enqueue(new Callback<AddRecipeResponse>() {
             @Override
             public void onResponse(@NonNull Call<AddRecipeResponse> call, @NonNull Response<AddRecipeResponse> response) {
@@ -222,6 +227,8 @@ public class AddRecipeActivity extends BaseActivity {
 
                         Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
                     }
+
+                    saveBtn.setClickable(true);
                 }
             }
 
@@ -230,6 +237,8 @@ public class AddRecipeActivity extends BaseActivity {
                 Log.w("Add Recipe Error", t.getMessage());
 
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                saveBtn.setClickable(true);
             }
         });
     }

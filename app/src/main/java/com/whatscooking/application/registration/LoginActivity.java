@@ -37,7 +37,7 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         if (session.isLoggedIn()) {
-            loadDashboard();
+            loadFeed();
         }
 
         setContentView(R.layout.activity_login);
@@ -51,7 +51,7 @@ public class LoginActivity extends BaseActivity {
         Button login = findViewById(R.id.btnLogIn);
 
         register.setOnClickListener(v -> {
-            Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
+            Intent i = new Intent(getApplicationContext(), SignUpActivity.class);
             startActivity(i);
             finish();
         });
@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity {
                         if (responseFromAPI.getEmail() != null && responseFromAPI.getFirstName() != null && responseFromAPI.getLastName() != null && responseFromAPI.getAccountId() != null) {
                             session.loginUser(loginModal.getUsername(), responseFromAPI.getEmail(), responseFromAPI.getFirstName(), responseFromAPI.getLastName(), responseFromAPI.getAccountId());
 
-                            loadDashboard();
+                            loadFeed();
                         } else {
                             Toast.makeText(getApplicationContext(), "Contact Administrator about your account", Toast.LENGTH_SHORT).show();
                         }
