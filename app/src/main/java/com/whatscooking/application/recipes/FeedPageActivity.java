@@ -75,7 +75,7 @@ public class FeedPageActivity extends BaseActivity {
                 bundle.putString("recipe_title", recipe.getRecipeName());
                 bundle.putString("recipe_ingredients", recipe.getIngredients());
                 bundle.putString("recipe_steps", recipe.getInstructions());
-                bundle.putInt("recipe_category_id", recipe.getCategoryId());
+                bundle.putString("recipe_category_tag", recipe.getCategoryTag());
                 i.putExtras(bundle);
 
                 startActivity(i);
