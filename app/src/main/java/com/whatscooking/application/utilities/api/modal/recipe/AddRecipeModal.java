@@ -9,14 +9,16 @@ public class AddRecipeModal {
     private final String recipeName;
     private final String imageData;
     private final String category;
+    private final String categoryTag;
     private final String authorId;
 
-    public AddRecipeModal(String recipeName, String ingredients, String instructions, String imageData, String category, String authorId) {
+    public AddRecipeModal(String recipeName, String ingredients, String instructions, String imageData, String category, String categoryTag, String authorId) {
         this.recipeName = recipeName;
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.imageData = imageData;
         this.category = category;
+        this.categoryTag = categoryTag;
         this.authorId = authorId;
     }
 
@@ -30,6 +32,10 @@ public class AddRecipeModal {
 
     public String getCategory() {
         return this.category;
+    }
+
+    public String getCategoryTag() {
+        return this.categoryTag;
     }
 
     public String getRecipeName() {
@@ -53,6 +59,7 @@ public class AddRecipeModal {
             ", recipeName='" + this.recipeName + '\'' +
             ", imageData='" + this.imageData + '\'' +
             ", category=" + this.category + '\'' +
+            ", categoryTag=" + this.categoryTag + '\'' +
             ", authorId=" + this.authorId + '\'' +
             '}';
     }
