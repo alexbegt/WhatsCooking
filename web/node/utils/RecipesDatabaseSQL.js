@@ -453,7 +453,7 @@ const handleCheckRecipeAlreadyFavorited = (recipeId, authorId) => new Promise((r
         } else {
             if (count === 0) resolve("Continue");
 
-            reject("Recipe Already Added To Favorite");
+            reject("Recipe already added to favorites");
         }
     });
 

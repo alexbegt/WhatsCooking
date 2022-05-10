@@ -45,6 +45,7 @@ public class RecipeCardActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_recipe_card);
 
         User user = session.getUserDetails();
@@ -168,7 +169,7 @@ public class RecipeCardActivity extends BaseActivity {
 
                         if (responseFromAPI.isSuccessful()) {
                             favoriteBtn.setClickable(false);
-                            Toast.makeText(getApplicationContext(), "Recipe added to favorites!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Recipe added to favorites!", Toast.LENGTH_SHORT).show();
 
                             return;
                         } else {
@@ -187,13 +188,13 @@ public class RecipeCardActivity extends BaseActivity {
 
                             Log.w("Favorite Recipe Error", errorResponse.getMessage());
 
-                            favoriteBtn.setClickable(!errorResponse.getMessage().contains("Recipe Already Added To Favorite"));
+                            favoriteBtn.setClickable(!errorResponse.getMessage().contains("Recipe already added to favorites"));
 
                             Toast.makeText(getApplicationContext(), errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             Log.w("Favorite Recipe Error", e.getMessage());
 
-                            favoriteBtn.setClickable(!Objects.requireNonNull(e.getMessage()).contains("Recipe Already Added To Favorite"));
+                            favoriteBtn.setClickable(!Objects.requireNonNull(e.getMessage()).contains("Recipe already added to favorites"));
 
                             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -202,7 +203,7 @@ public class RecipeCardActivity extends BaseActivity {
                     } else {
                         Log.w("Favorite Recipe Error", response.message());
 
-                        favoriteBtn.setClickable(!response.message().contains("Recipe Already Added To Favorite"));
+                        favoriteBtn.setClickable(!response.message().contains("Recipe already added to favorites"));
 
                         Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
                     }
