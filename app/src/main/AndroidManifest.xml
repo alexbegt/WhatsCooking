@@ -18,7 +18,8 @@
 
         <activity
             android:name=".recipes.RecipeCardActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".recipes.AddRecipeActivity"
