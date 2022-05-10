@@ -15,8 +15,13 @@ public class SavedRecipesActivity extends BaseActivity {
         setContentView(R.layout.activity_saved_recipes);
     }
 
-    public void toMyRecipes(View v){
+    public void toMyRecipesActivity(View v){
         Intent i = new Intent(getApplicationContext(),MyRecipesActivity.class);
+        startActivity(i);
+    }
+  
+    public void toFeedPageActivity(View v){
+        Intent i = new Intent(getApplicationContext(),FeedPageActivity.class);
         startActivity(i);
     }
 }
