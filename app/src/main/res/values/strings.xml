@@ -52,5 +52,7 @@
 
     <!--    Add Recipe Card-->
     <string name="add_recipe">Add recipe</string>
+    <string name="my_recipe_title">My Recipes</string>
+    <string name="saved_recipes_title">Saved Recipes</string>
     <!--    Add Recipe Card-->
 </resources>
