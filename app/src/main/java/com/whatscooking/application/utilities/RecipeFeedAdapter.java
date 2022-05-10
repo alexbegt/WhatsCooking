@@ -104,4 +104,8 @@ public class RecipeFeedAdapter implements ListAdapter {
     public boolean isEmpty() {
         return false;
     }
+
+    public void clearData() {
+        this.recipeArrayList.clear();
+    }
 }

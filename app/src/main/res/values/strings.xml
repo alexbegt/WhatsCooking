@@ -31,20 +31,27 @@
     <string name="discard">Discard</string>
     <!--    Add Recipe Card-->
 
+    <!--    Feed-->
     <string name="feed">Feed</string>
-
-    <string name="my_recipes">My Recipes</string>
-    <string name="saved_recipes">Saved Recipes</string>
-
     <string name="food_image">Food Image</string>
     <string name="recipe_category_placeholder">Category Placeholder</string>
     <string name="recipe_ingredients_placeholder">Ingredients Placeholder</string>
     <string name="recipe_title_placeholder">Title Placeholder</string>
-
+    <string name="my_recipes">My Recipes</string>
+    <string name="saved_recipes">Saved Recipes</string>
     <string name="loading_recipes">Loading Recipes…</string>
     <string name="failed_to_load">Failed to load recipes</string>
     <string name="retry_fetch">Retry loading recipes?</string>
     <string name="no_recipes_found">No recipes found</string>
+    <!--    Feed-->
 
+    <!--    Recipe Card-->
+    <string name="favorite">Favorite</string>
+    <string name="back">Back</string>
+    <!--    Recipe Card-->
+
+    <!--    Add Recipe Card-->
     <string name="add_recipe">Add recipe</string>
+    <string name="what_s_cooking" />
+    <!--    Add Recipe Card-->
 </resources>

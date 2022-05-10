@@ -17,11 +17,17 @@ app.get('/test', (req, res) => {
     res.send(saltHashPassword(''));
 })
 
-//Require the Router we defined in movies.js
-var api = require('./api/api.js');
+//Require the Router we defined in api.js
+var api = require('./api/index.js');
 
 //Use the Router on the sub route /api
 app.use('/api', api);
+
+//Require the Router we defined in movies.js
+var recipesApi = require('./api/recipes.js');
+
+//Use the Router on the sub route /api/recipes
+app.use('/api/recipes', recipesApi);
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
