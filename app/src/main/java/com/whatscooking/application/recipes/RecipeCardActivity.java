@@ -169,6 +169,7 @@ public class RecipeCardActivity extends BaseActivity {
 
                         if (responseFromAPI.isSuccessful()) {
                             favoriteBtn.setClickable(false);
+                            Toast.makeText(getApplicationContext(), "Recipe added to favorites!", Toast.LENGTH_LONG).show();
 
                             return;
                         } else {
