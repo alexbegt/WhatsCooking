@@ -26,7 +26,7 @@ const handleCheckUsernameOrEmailSQL = (username, email) => new Promise((resolve,
 
     var count = 0;
 
-    var request = new Request("SELECT COUNT(*) FROM DBO.users WHERE username = @Username OR email = @Email", function (err, rowCount) {
+    var request = new Request("SELECT COUNT(*) FROM DBO.Users WHERE username = @Username OR email = @Email", function (err, rowCount) {
         if (err) {
             console.log("Request error: " + err);
 
@@ -85,7 +85,7 @@ const handleRegisterUserSQL = (firstName, lastName, email, username, password, s
 
     var accountInformation = {};
 
-    var request = new Request("INSERT INTO DBO.users (first_name, last_name, email, username, password, salt) OUTPUT INSERTED.accountId VALUES (@FirstName, @LastName, @Email, @Username, @Password, @Salt)", function (err, rowCount) {
+    var request = new Request("INSERT INTO DBO.Users (firstName, lastName, email, username, password, salt) OUTPUT INSERTED.accountId VALUES (@FirstName, @LastName, @Email, @Username, @Password, @Salt)", function (err, rowCount) {
         if (err) {
             console.log("Request error: " + err);
 
@@ -150,7 +150,7 @@ const handleUseLoginSQL = (username) => new Promise((resolve, reject) => {
         }
     });
 
-    var request = new Request("SELECT email, first_name, last_name, password, salt, accountId FROM DBO.users WHERE username = @Username ", function (err, rowCount) {
+    var request = new Request("SELECT email, firstName, lastName, password, salt, accountId FROM DBO.Users WHERE username = @Username ", function (err, rowCount) {
         if (err) {
             console.log("Request error: " + err);
 
