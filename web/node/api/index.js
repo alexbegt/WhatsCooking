@@ -20,7 +20,7 @@ router.post('/register', function (req, res) {
         var salt = passwordData.passwordSalt;
 
         databaseSql.handleCheckUsernameOrEmailSQL(req.body.username, req.body.email)
-            .then(unused => {
+            .then(() => {
                 databaseSql.handleRegisterUserSQL(firstName, lastName, email, username, password, salt)
                     .then(ok => { res.status(200).json(ok); })
                     .catch(err => { res.status(500).json({ message: err }); })
@@ -45,14 +45,12 @@ router.post('/login', function (req, res) {
                 return Promise.reject("Username or password is incorrect!");
             } else {
                 return Promise.resolve({
-                    firstName: accountInformation['first_name'],
-                    lastName: accountInformation['last_name'],
+                    firstName: accountInformation['firstName'],
+                    lastName: accountInformation['lastName'],
                     email: accountInformation['email'],
                     accountId: accountInformation['accountId'],
                 })
             }
-
-            return Promise.reject("Unknown error");
         }
 
         databaseSql.handleUseLoginSQL(req.body.username)

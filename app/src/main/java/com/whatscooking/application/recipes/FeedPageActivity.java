@@ -83,12 +83,14 @@ public class FeedPageActivity extends BaseActivity {
         });
 
         Button savedRecipes = findViewById(R.id.btnSavedRecipes);
+
         savedRecipes.setOnClickListener(v -> {
             Intent i = new Intent(getApplicationContext(), SavedRecipesActivity.class);
             startActivity(i);
         });
 
         Button myRecipesBtn = findViewById(R.id.btnMyRecipes);
+        
         myRecipesBtn.setOnClickListener(v -> {
             Intent i = new Intent(getApplicationContext(), MyRecipesActivity.class);
             startActivity(i);

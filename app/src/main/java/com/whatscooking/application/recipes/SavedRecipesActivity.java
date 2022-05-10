@@ -14,10 +14,12 @@ public class SavedRecipesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_recipes);
     }
+
     public void toMyRecipesActivity(View v){
         Intent i = new Intent(getApplicationContext(),MyRecipesActivity.class);
         startActivity(i);
     }
+  
     public void toFeedPageActivity(View v){
         Intent i = new Intent(getApplicationContext(),FeedPageActivity.class);
         startActivity(i);
