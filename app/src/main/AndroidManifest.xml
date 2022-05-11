@@ -48,6 +48,11 @@
         <activity
             android:name=".registration.LoginActivity"
             android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".LoadingScreenActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
 
             <intent-filter>
