@@ -17,84 +17,23 @@
         android:backgroundTint="#CE5151"
         android:fontFamily="@font/inter"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/app_name"
+        android:text="@string/my_recipes_title"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="38sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:background="@drawable/button_title"
-        android:backgroundTint="#FFBA79"
-        android:fontFamily="@font/inter"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/my_recipe_title"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
-
-    <ProgressBar
-        android:id="@+id/recipesLoadingProcess"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="220dp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <TextView
-        android:id="@+id/recipesLoading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:text="@string/loading_recipes"
-        android:textColor="#040404"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:typeface="sans"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipesLoadingProcess" />
-
-    <Button
-        android:id="@+id/btnRetry"
-        android:layout_width="165dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/round_btn"
-        android:backgroundTint="#CE5151"
-        android:text="@string/retry_fetch"
-        android:textAlignment="gravity"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipesLoading" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeToRefresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="75dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSavedRecipes"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddRecipe"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
 
@@ -105,11 +44,61 @@
             android:divider="#000"
             android:dividerHeight="1dp"
             android:footerDividersEnabled="false"
-            android:headerDividersEnabled="false" >
-
-
-        </ListView>
+            android:headerDividersEnabled="false" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent=".7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        app:layout_constraintWidth_percent=".7">
+
+        <ProgressBar
+            android:id="@+id/recipesLoadingProcess"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        <TextView
+            android:id="@+id/recipesLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:layout_marginTop="5dp"
+            android:text="@string/loading_recipes"
+            android:textColor="#040404"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:fontFamily="@font/inter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipesLoadingProcess" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="165dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/round_btn"
+            android:backgroundTint="#CE5151"
+            android:fontFamily="@font/inter"
+            android:text="@string/retry_fetch"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipesLoading" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnFeed"
@@ -120,13 +109,24 @@
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
         android:text="@string/feed"
-        android:onClick="toFeedPageActivity"
+        android:fontFamily="@font/inter"
         android:textAlignment="gravity"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnAddRecipe"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/ic_add_button1"
+        app:layout_constraintBottom_toTopOf="@+id/btnSavedRecipes"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="TODO" />
 
     <Button
         android:id="@+id/btnSavedRecipes"
@@ -136,24 +136,13 @@
         android:layout_marginBottom="28dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="#CE5151"
-        android:onClick="toSavedRecipesActivity"
         android:text="@string/saved_recipes"
         android:textAlignment="gravity"
         android:textColor="#000000"
         android:textStyle="bold"
+        android:fontFamily="@font/inter"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="70dp"
-        android:layout_height="60dp"
-        android:layout_marginRight="50dp"
-        android:onClick="toAddRecipeActivity"
-        android:background="@drawable/ic_add_button1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swipeToRefresh"
-         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

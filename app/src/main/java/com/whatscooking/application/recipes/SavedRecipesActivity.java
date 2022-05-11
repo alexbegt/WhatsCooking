@@ -2,26 +2,49 @@ package com.whatscooking.application.recipes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 
-import com.whatscooking.application.BaseActivity;
 import com.whatscooking.application.R;
+import com.whatscooking.application.utilities.api.RetrofitAPI;
+import com.whatscooking.application.utilities.api.modal.recipe.AccountRecipesModal;
 
-public class SavedRecipesActivity extends BaseActivity {
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class SavedRecipesActivity extends AbstractFeedPageActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_recipes);
+
+        super.onCreate(savedInstanceState);
+
+        Button myRecipesBtn = findViewById(R.id.btnMyRecipes);
+
+        myRecipesBtn.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), MyRecipesActivity.class);
+            startActivity(i);
+            finish();
+        });
+
+        Button feedBtn = findViewById(R.id.btnFeed);
+
+        feedBtn.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), FeedPageActivity.class);
+            startActivity(i);
+            finish();
+        });
     }
 
-    public void toMyRecipesActivity(View v){
-        Intent i = new Intent(getApplicationContext(),MyRecipesActivity.class);
-        startActivity(i);
-    }
-  
-    public void toFeedPageActivity(View v){
-        Intent i = new Intent(getApplicationContext(),FeedPageActivity.class);
-        startActivity(i);
+    @Override
+    public void fetchRecipes() {
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+
+        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+
+        handleCallback(retrofitAPI.getFavoriteRecipesByAccount(new AccountRecipesModal(session.getUserDetails().getAccountId())));
     }
 }
