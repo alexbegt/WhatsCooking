@@ -57,6 +57,7 @@ public class RecipeCardActivity extends BaseActivity {
         String ingredients = bundle.getString("recipe_ingredients");
         String steps = bundle.getString("recipe_steps");
         String categoryTag = bundle.getString("recipe_category_tag");
+        int authorId = bundle.getInt("recipe_author_id");
 
         imageView = findViewById(R.id.recipeImage);
         TextView txtView = findViewById(R.id.txtTitle);
@@ -82,8 +83,13 @@ public class RecipeCardActivity extends BaseActivity {
 
         favoriteBtn.setOnClickListener(v -> {
             favoriteBtn.setClickable(false);
-            FavoriteRecipeModal favoriteRecipeModal = new FavoriteRecipeModal(String.valueOf(recipeId), user.getAccountId());
-            favoriteRecipe(favoriteRecipeModal);
+            
+            if (!String.valueOf(authorId).equals(user.getAccountId())) {
+                FavoriteRecipeModal favoriteRecipeModal = new FavoriteRecipeModal(String.valueOf(recipeId), user.getAccountId());
+                favoriteRecipe(favoriteRecipeModal);
+            } else {
+                Toast.makeText(getApplicationContext(), "You cannot favorite your own recipe!", Toast.LENGTH_SHORT).show();
+            }
         });
 
         Button backBtn = findViewById(R.id.btnBack);
