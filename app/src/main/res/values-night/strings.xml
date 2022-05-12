@@ -1,17 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Whats Cooking</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="app_name">What\'s Cooking</string>
+
+    <!--    Login/Register-->
+    <string name="register">Register</string>
     <string name="already_having_account">Already have an Account?</string>
+    <string name="need_an_account">Need an Account?</string>
     <string name="log_in">Log In</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="full_name">Full Name</string>
-    <string name="ingredients">Ingredients</string>
-    <string name="enter_tag">Enter Tag</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="email">Email:</string>
+    <string name="username">Username:</string>
+    <string name="password">Password:</string>
+    <!--    Login/Register-->
+
+    <!--    Add Recipe Card-->
+    <string name="add_recipe_title">What\'s Cooking: \nAdd Recipe</string>
     <string name="recipe_title">Recipe Title</string>
-    <string name="instructions">Instructions</string>
+    <string name="title_here">Title Here</string>
+    <string name="recipe_category">Recipe Category</string>
+    <string name="upload_picture">Upload Picture</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="list_ingredients">List Ingredients…</string>
+    <string name="steps">Steps</string>
+    <string name="list_steps">List Steps…</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="dessert">Dessert/Snack</string>
     <string name="save">Save</string>
+    <string name="discard">Discard</string>
+    <!--    Add Recipe Card-->
+
+    <!--    Feed-->
+    <string name="feed">Feed</string>
+    <string name="food_image">Food Image</string>
+    <string name="recipe_category_placeholder">Category Placeholder</string>
+    <string name="recipe_ingredients_placeholder">Ingredients Placeholder</string>
+    <string name="recipe_title_placeholder">Title Placeholder</string>
+    <string name="my_recipes">My Recipes</string>
+    <string name="saved_recipes">Saved Recipes</string>
+    <string name="loading_recipes">Loading Recipes…</string>
+    <string name="failed_to_load">Failed to load recipes</string>
+    <string name="retry_fetch">Retry loading recipes?</string>
+    <string name="no_recipes_found">No recipes found</string>
+    <!--    Feed-->
+
+    <!--    Recipe Card-->
+    <string name="favorite">Favorite</string>
     <string name="back">Back</string>
+    <!--    Recipe Card-->
+
+    <!--    Add Recipe Card-->
+    <string name="add_recipe">Add recipe</string>
+    <string name="my_recipes_title">What\'s Cooking: \nMy Recipes</string>
+    <string name="saved_recipes_title">What\'s Cooking: \nSaved Recipes</string>
+    <!--    Add Recipe Card-->
 </resources>
