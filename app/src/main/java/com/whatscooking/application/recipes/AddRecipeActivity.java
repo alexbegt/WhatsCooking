@@ -20,7 +20,6 @@ import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.api.RetrofitAPI;
 import com.whatscooking.application.utilities.api.modal.recipe.AddRecipeModal;
 import com.whatscooking.application.utilities.api.response.ErrorResponse;
 import com.whatscooking.application.utilities.api.response.recipe.AddRecipeResponse;
@@ -31,8 +30,6 @@ import java.io.ByteArrayOutputStream;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddRecipeActivity extends BaseActivity {
 
@@ -178,13 +175,7 @@ public class AddRecipeActivity extends BaseActivity {
     }
 
     public void addRecipe(AddRecipeModal addRecipeModal) {
-        Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        Call<AddRecipeResponse> call = retrofitAPI.addRecipe(addRecipeModal);
+        Call<AddRecipeResponse> call = getRetrofitAPI().addRecipe(addRecipeModal);
 
         saveBtn.setClickable(false);
 

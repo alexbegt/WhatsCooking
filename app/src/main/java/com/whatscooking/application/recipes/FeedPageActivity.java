@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.api.RetrofitAPI;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FeedPageActivity extends AbstractFeedPageActivity {
 
@@ -35,13 +31,6 @@ public class FeedPageActivity extends AbstractFeedPageActivity {
 
     @Override
     public void fetchRecipes() {
-        Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        handleCallback(retrofitAPI.getRecipes());
+        handleCallback(getRetrofitAPI().getRecipes());
     }
 }

@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.api.RetrofitAPI;
 import com.whatscooking.application.utilities.api.modal.registration.RegisterModal;
 import com.whatscooking.application.utilities.api.response.ErrorResponse;
 import com.whatscooking.application.utilities.api.response.registration.RegisterResponse;
@@ -24,8 +23,6 @@ import java.util.regex.Pattern;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUpActivity extends BaseActivity {
 
@@ -82,13 +79,7 @@ public class SignUpActivity extends BaseActivity {
     private void registerUser(RegisterModal registerModal) {
         progressBar.setVisibility(View.VISIBLE);
 
-        Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        Call<RegisterResponse> call = retrofitAPI.registerUser(registerModal);
+        Call<RegisterResponse> call = getRetrofitAPI().registerUser(registerModal);
 
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
