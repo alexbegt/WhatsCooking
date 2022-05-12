@@ -83,7 +83,7 @@ public class RecipeCardActivity extends BaseActivity {
 
         favoriteBtn.setOnClickListener(v -> {
             favoriteBtn.setClickable(false);
-            
+
             if (!String.valueOf(authorId).equals(user.getAccountId())) {
                 FavoriteRecipeModal favoriteRecipeModal = new FavoriteRecipeModal(String.valueOf(recipeId), user.getAccountId());
                 favoriteRecipe(favoriteRecipeModal);
@@ -101,13 +101,7 @@ public class RecipeCardActivity extends BaseActivity {
     }
 
     public void getRecipeImage(RecipeImageModal recipeImageModal) {
-        Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        Call<RecipeImageResponse> call = retrofitAPI.getRecipeImage(recipeImageModal);
+        Call<RecipeImageResponse> call = getRetrofitAPI().getRecipeImage(recipeImageModal);
 
         call.enqueue(new Callback<RecipeImageResponse>() {
             @Override

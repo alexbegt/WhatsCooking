@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 import com.whatscooking.application.BaseActivity;
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.api.RetrofitAPI;
 import com.whatscooking.application.utilities.api.modal.registration.RegisterModal;
 import com.whatscooking.application.utilities.api.response.ErrorResponse;
 import com.whatscooking.application.utilities.api.response.registration.RegisterResponse;
@@ -24,8 +23,6 @@ import java.util.regex.Pattern;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUpActivity extends BaseActivity {
 
@@ -36,6 +33,9 @@ public class SignUpActivity extends BaseActivity {
     private EditText etPassword;
 
     private ProgressBar progressBar;
+
+    private Button signUpBtn;
+
     private static final Pattern PASSWORD_PATTERN =
         Pattern.compile("^" +
             "(?=.*[@#$%^&+=])" +     // at least 1 special character
@@ -57,7 +57,7 @@ public class SignUpActivity extends BaseActivity {
         progressBar = findViewById(R.id.progressRegister);
 
         Button login = findViewById(R.id.btnSignUpLogin);
-        Button signUp = findViewById(R.id.btnSignUp);
+        signUpBtn = findViewById(R.id.btnSignUp);
 
         login.setOnClickListener(v -> {
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
@@ -66,7 +66,9 @@ public class SignUpActivity extends BaseActivity {
             finish();
         });
 
-        signUp.setOnClickListener(v -> {
+        signUpBtn.setOnClickListener(v -> {
+            signUpBtn.setClickable(false);
+
             RegisterModal registerModal = new RegisterModal(etFirstName.getText().toString().trim(),
                 etLastName.getText().toString().trim(),
                 etEmail.getText().toString().toLowerCase().trim(),
@@ -82,13 +84,7 @@ public class SignUpActivity extends BaseActivity {
     private void registerUser(RegisterModal registerModal) {
         progressBar.setVisibility(View.VISIBLE);
 
-        Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        Call<RegisterResponse> call = retrofitAPI.registerUser(registerModal);
+        Call<RegisterResponse> call = getRetrofitAPI().registerUser(registerModal);
 
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
@@ -111,9 +107,11 @@ public class SignUpActivity extends BaseActivity {
 
                             loadFeed();
                         } else {
+                            signUpBtn.setClickable(true);
                             Toast.makeText(getApplicationContext(), "Contact Administrator about your account", Toast.LENGTH_SHORT).show();
                         }
                     } else {
+                        signUpBtn.setClickable(true);
                         Toast.makeText(getApplicationContext(), "Internal Server Error", Toast.LENGTH_SHORT).show();
                     }
                 } else {
@@ -124,12 +122,15 @@ public class SignUpActivity extends BaseActivity {
                                 ErrorResponse.class);
 
                             Toast.makeText(getApplicationContext(), errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            signUpBtn.setClickable(true);
                         } catch (Exception e) {
                             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
+                            signUpBtn.setClickable(true);
                         }
                     } else {
                         Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
+                        signUpBtn.setClickable(true);
                     }
                 }
             }
@@ -139,6 +140,7 @@ public class SignUpActivity extends BaseActivity {
                 progressBar.setVisibility(View.INVISIBLE);
 
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                signUpBtn.setClickable(true);
             }
         });
     }

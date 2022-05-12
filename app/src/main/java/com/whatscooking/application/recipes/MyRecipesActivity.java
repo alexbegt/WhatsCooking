@@ -6,11 +6,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.whatscooking.application.R;
-import com.whatscooking.application.utilities.api.RetrofitAPI;
 import com.whatscooking.application.utilities.api.modal.recipe.AccountRecipesModal;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyRecipesActivity extends AbstractFeedPageActivity {
 
@@ -47,13 +43,6 @@ public class MyRecipesActivity extends AbstractFeedPageActivity {
 
     @Override
     public void fetchRecipes() {
-        Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        handleCallback(retrofitAPI.getRecipesForAccount(new AccountRecipesModal(session.getUserDetails().getAccountId())));
+        handleCallback(getRetrofitAPI().getRecipesForAccount(new AccountRecipesModal(session.getUserDetails().getAccountId())));
     }
 }
