@@ -107,6 +107,8 @@ public class SignUpActivity extends BaseActivity {
                                 responseFromAPI.getAccountId()
                             );
 
+                            Toast.makeText(getApplicationContext(), "Welcome " + registerModal.getFirstName() + " " + registerModal.getLastName() + "!", Toast.LENGTH_SHORT).show();
+
                             loadFeed();
                         } else {
                             Toast.makeText(getApplicationContext(), "Contact Administrator about your account", Toast.LENGTH_SHORT).show();

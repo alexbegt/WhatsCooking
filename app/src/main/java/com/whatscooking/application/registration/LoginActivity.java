@@ -37,6 +37,7 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         if (session.isLoggedIn()) {
+            Toast.makeText(getApplicationContext(), "Welcome Back " + session.getUserDetails().getFirstName() + " " + session.getUserDetails().getLastName() + "!", Toast.LENGTH_SHORT).show();
             loadFeed();
         }
 
@@ -88,6 +89,8 @@ public class LoginActivity extends BaseActivity {
 
                         if (responseFromAPI.getEmail() != null && responseFromAPI.getFirstName() != null && responseFromAPI.getLastName() != null && responseFromAPI.getAccountId() != null) {
                             session.loginUser(loginModal.getUsername(), responseFromAPI.getEmail(), responseFromAPI.getFirstName(), responseFromAPI.getLastName(), responseFromAPI.getAccountId());
+
+                            Toast.makeText(getApplicationContext(), "Welcome " + session.getUserDetails().getFirstName() + " " + session.getUserDetails().getLastName() + "!", Toast.LENGTH_SHORT).show();
 
                             loadFeed();
                         } else {

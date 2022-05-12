@@ -71,6 +71,8 @@ public abstract class AbstractFeedPageActivity extends BaseActivity {
                 bundle.putString("recipe_ingredients", recipe.getIngredients());
                 bundle.putString("recipe_steps", recipe.getInstructions());
                 bundle.putString("recipe_category_tag", recipe.getCategoryTag());
+                bundle.putInt("recipe_author_id", recipe.getAuthorId());
+                
                 i.putExtras(bundle);
 
                 startActivity(i);
